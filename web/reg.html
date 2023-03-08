@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HOTEL</title>
+        <script type='text/javascript' src='/eel.js'></script>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+        <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'>
+
+    </head>
+    
+    <body>
+      <!-- <form action="#">
+        <input id='login' placeholder='Type login here'>
+        <input id='password' placeholder='Type password here'>
+        <button type="submit" id="btn">login</button>
+      </form> -->
+    <div class="wrapper">
+        <div class="header">
+          <h3 class="sign-in">Sign in</h3>
+          <!-- <div class="button">
+            Register
+          </div> -->
+        </div>
+         <div class="clear"></div> 
+        <form action="index.html">
+            <div>
+              <input type="text" name="login" id="login" placeholder="Type your login here">
+            </div> 
+            <div>
+              <input type="password" name="password" id="password" placeholder="Type your password here">
+            </div> 
+           <div>
+            <input type="submit" value="Sign in" id="btn">
+          </div>
+            <div class="clear"></div>
+        </form>  
+      </div>
+
+    <script>
+            let btn = document.querySelector('#btn');
+            btn.addEventListener('click', sendData);
+
+            async function sendData() {
+                let login = document.querySelector('#login').value;
+                let password = document.querySelector('#password').value;  
+                await eel.auth(login, password);
+        }
+        </script>
+    </body>
+</html>
