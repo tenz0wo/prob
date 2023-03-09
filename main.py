@@ -11,7 +11,7 @@ try:
 except Error as e:
     print(f"The error '{e}' occurred")
 
-sql = connection.cursor()
+cursor = connection.cursor()
 
 
 connection.commit()
@@ -20,13 +20,22 @@ eel.init('web')
 
 @eel.expose
 def auth(login, password):
-    sql.execute("SELECT Login, Password FROM Employees")
-    rows = sql.fetchall()
+    cursor.execute("SELECT Login, Password FROM Employees")
+    rows = cursor.fetchall()
     for result in rows:
         if result['Login'] == login and result["Password"] == password:
             print(login, password)
         else:
             print("Invalid user!")
+
+@eel.expose
+def authenticate(login, password):
+    cursor.execute("SELECT Login, Password FROM Employees WHERE Login = ? AND Password = ?", (login, password))
+    result = cursor.fetchone()
+    if result:
+        eel.receiver("true")
+    else:
+        eel.receiver("false")
 
 
 eel.start('reg.html', size=(600, 600))
