@@ -8,6 +8,11 @@ html, body {
   font-family: 'Roboto', sans-serif;
 }
 
+.container{
+  background: #1a1f25;
+
+}
+
 .clear {
   clear: both;
 }
@@ -37,7 +42,7 @@ form {
 
 .button {
   float: right;
-  color: #7f8084;
+  color: #84847f;
   border: 1px solid #22272d;
   padding: 7px 15px;
   border-radius: 3px;
@@ -180,4 +185,48 @@ input[type="radio"] {
   float: right;
   padding: 3px 0;
   cursor: pointer;
+}
+
+/*  */
+
+.table {
+	width: 100%;
+	border: none;
+	margin-bottom: 20px;
+}
+.table thead th {
+	font-weight: bold;
+	text-align: left;
+	border: none;
+	padding: 10px 15px;
+	background: #d8d8d8;
+	font-size: 14px;
+}
+.table thead tr th:first-child {
+	border-radius: 8px 0 0 8px;
+}
+.table thead tr th:last-child {
+	border-radius: 0 8px 8px 0;
+}
+.table tbody td {
+	text-align: left;
+	border: none;
+	padding: 10px 15px;
+	font-size: 14px;
+	vertical-align: top;
+}
+
+.table tbody tr td:first-child {
+	border-radius: 8px 0 0 8px;
+}
+.table tbody tr td:last-child {
+	border-radius: 0 8px 8px 0;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #f7b23a;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #c09956	;
 }

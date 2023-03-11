@@ -6,7 +6,7 @@ from sqlite3 import Error
 try:
     connection = sqlite3.connect('db.sqlite')
     print("Connection to SQLite DB successful")
-    connection.row_factory = sqlite3.Row
+    # connection.row_factory = sqlite3.Row
 
 except Error as e:
     print(f"The error '{e}' occurred")
@@ -37,5 +37,14 @@ def authenticate(login, password):
     else:
         eel.receiver("false")
 
+@eel.expose
+def show_ticket():
+    cursor.execute("""SELECT g.FirstName, g.LastName, g.RoomNumber, g.NumberOfGuests, g.PhoneNumber, b.CheckInDate, b.CheckOutDate
+                    FROM Guests g INNER JOIN Bookings b ON
+                    g.GuestID = b.GuestID;
+                    """)
+    result = cursor.fetchall()
+    return result
 
-eel.start('reg.html', size=(600, 600))
+if __name__ == "__main__":
+    eel.start('index.html', size=(600, 600))
